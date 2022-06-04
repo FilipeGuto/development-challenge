@@ -10,6 +10,7 @@ const {
   fetchCreateUser,
   fetchFindUsers,
   fetchUsersLogin,
+  fetchDeleteUser,
 } = require('../fetch/users.fetch');
 
 const serviceCreateUser = async (user) => {
@@ -69,8 +70,15 @@ const serviceLogin = async (user) => {
   return (user);
 };
 
+const serviceDeleteUser = async (id) => {
+  await fetchDeleteUser(id);
+
+  return { message: 'User Deleted' }
+};
+
 module.exports = {
   serviceCreateUser,
   serviceFindUsers,
   serviceLogin,
+  serviceDeleteUser,
 };

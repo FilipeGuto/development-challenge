@@ -51,8 +51,24 @@ const fetchUsersLogin = async () => {
   return usersByEmail;
 }
 
+const fetchDeleteUser = async (id) => {
+  try {
+const options = {
+  method: 'DELETE',
+  url: `${baseURL}/user/${id}`,
+};
+
+  const { data } = await axios.request(options);
+
+  return data;
+} catch (error) {
+    console.error(error);
+  }
+}
+
 module.exports = {
   fetchCreateUser,
   fetchFindUsers,
   fetchUsersLogin,
+  fetchDeleteUser,
 };
