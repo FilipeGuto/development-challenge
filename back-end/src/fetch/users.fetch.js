@@ -12,6 +12,7 @@ const fetchCreateUser = async (user) => {
         id: user.id,
         fullName: user.fullName,
         email: user.email,
+        password: user.password,
         birthDate: user.birthDate,
         address: user.address,
       }
@@ -43,9 +44,9 @@ const fetchFindUsers = async () => {
   }
 };
 
-const fetchUsersEmail = async () => {
+const fetchUsersLogin = async () => {
   const myUsers = await fetchFindUsers();
-  const usersByEmail = myUsers.map(user => user.email);
+  const usersByEmail = myUsers.map(user => user);
 
   return usersByEmail;
 }
@@ -53,5 +54,5 @@ const fetchUsersEmail = async () => {
 module.exports = {
   fetchCreateUser,
   fetchFindUsers,
-  fetchUsersEmail,
+  fetchUsersLogin,
 };

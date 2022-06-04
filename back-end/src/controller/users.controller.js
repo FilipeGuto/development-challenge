@@ -1,6 +1,7 @@
 const {
   serviceCreateUser,
   serviceFindUsers,
+  serviceLogin,
 } = require('../service/users.services');
 const { created, sucess } = require('../../utils/dictionary/statusCode');
 
@@ -26,7 +27,19 @@ const controllerFindUsers = async (req, res, next) => {
   }
 };
 
+const controllerLogin = async (req, res, next) => {
+  try {
+    const loginUser = await serviceLogin(req.body);
+  
+    return res.status(sucess).json(loginUser);
+  } catch (error) {
+    console.log(`POST LOGIN -> ${error.message}`);
+      return next(error);
+  }
+  };
+
 module.exports = {
   controllerCreateUser,
   controllerFindUsers,
+  controllerLogin,
 };
