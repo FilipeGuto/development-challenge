@@ -3,6 +3,7 @@ const {
   serviceFindUsers,
   serviceLogin,
   serviceDeleteUser,
+  serviceUpdateUser,
 } = require('../service/users.services');
 const { created, sucess } = require('../../utils/dictionary/statusCode');
 
@@ -51,9 +52,22 @@ const controllerDeleteUser = async (req, res, next) => {
   }
 };
 
+const controllerUpdateUser = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const update = await serviceUpdateUser(id, req.body);
+
+    return res.status(sucess).json(update);
+  } catch (error) {
+    console.log(`UPDATE USER BY ID -> ${error.message}`);
+    return next(error);
+  }
+};
+
 module.exports = {
   controllerCreateUser,
   controllerFindUsers,
   controllerLogin,
   controllerDeleteUser,
+  controllerUpdateUser,
 };

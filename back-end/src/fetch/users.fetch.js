@@ -1,5 +1,5 @@
 const axios = require('axios');
-const baseURL = "https://9kdozamc2d.execute-api.us-east-1.amazonaws.com"
+const baseURL = "https://mgcbq4vjte.execute-api.us-east-1.amazonaws.com/v1"
 
 const fetchCreateUser = async (user) => {
   try {
@@ -9,12 +9,15 @@ const fetchCreateUser = async (user) => {
       headers: { 'Content-Type': 'application/json' },
       data:
       {
-        id: user.id,
         fullName: user.fullName,
         email: user.email,
         password: user.password,
         birthDate: user.birthDate,
-        address: user.address,
+        address: {
+          country: user.address.country,
+          state: user.address.state,
+          city: user.address.city
+        },
       }
     };
 
@@ -53,15 +56,59 @@ const fetchUsersLogin = async () => {
 
 const fetchDeleteUser = async (id) => {
   try {
-const options = {
-  method: 'DELETE',
-  url: `${baseURL}/user/${id}`,
-};
+    const options = {
+      method: 'DELETE',
+      url: `${baseURL}/users/${id}`,
+    };
 
-  const { data } = await axios.request(options);
+    const { data } = await axios.request(options);
 
-  return data;
-} catch (error) {
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+const fetchUserById = async (id) => {
+  try {
+    const options = {
+      method: 'GET',
+      url: `${baseURL}/users/${id}`,
+    };
+
+    const { data } = await axios.request(options);
+    const user = data.Item;
+
+    return user;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+const fetchUpdateUser = async (id, user) => {
+  try {
+    const options = {
+      method: 'PUT',
+      url: `${baseURL}/users/${id}`,
+      headers: { 'Content-Type': 'application/json' },
+      data:
+      {
+        fullName: user.fullName,
+        email: user.email,
+        password: user.password,
+        birthDate: user.birthDate,
+        address: {
+          country: user.address.country,
+          state: user.address.state,
+          city: user.address.city
+        },
+      }
+    };
+
+    const { data } = await axios.request(options);
+
+    return data;
+  } catch (error) {
     console.error(error);
   }
 }
@@ -71,4 +118,6 @@ module.exports = {
   fetchFindUsers,
   fetchUsersLogin,
   fetchDeleteUser,
+  fetchUserById,
+  fetchUpdateUser,
 };
