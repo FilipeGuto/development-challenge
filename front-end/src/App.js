@@ -1,8 +1,11 @@
+import { CssBaseline } from "@mui/material";
+import { Home } from "../src/Pages"
+
 function App() {
   return (
-    <div className="App">
-      Hello World!!
-    </div>
+    <CssBaseline>
+      <Home />
+    </CssBaseline>
   );
 }
 
