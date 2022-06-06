@@ -33,12 +33,7 @@ const fetchCreateUser = async (user) => {
 
 const fetchFindUsers = async () => {
   try {
-    const options = {
-      method: 'GET',
-      url: `${baseURL}/users`,
-    };
-
-    const { data } = await axios.request(options);
+    const { data } = await axios.get(`${baseURL}/users`);
     const users = data.Items;
 
     return users;
