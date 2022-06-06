@@ -51,6 +51,12 @@ const serviceFindUsers = async () => {
   return users;
 };
 
+const serviceUserById = async (id) => {
+  const users = await fetchUserById(id);
+
+  return users;
+};
+
 const serviceLogin = async (user) => {
   const { email, password } = user
 
@@ -65,7 +71,7 @@ const serviceLogin = async (user) => {
     emailCorrect !== email ||
     !passwordCorrect ||
     passwordCorrect !== password
-    ) {
+  ) {
     throw errorMessage(unauthorized, 'Incorrect username or password');
   }
 
@@ -73,13 +79,31 @@ const serviceLogin = async (user) => {
 };
 
 const serviceDeleteUser = async (id) => {
-  await fetchDeleteUser(id);
+  const userById = await fetchUserById(id);
+
+  if (!userById) {
+    throw errorMessage(unauthorized, 'User not found');
+  } else {
+    await fetchDeleteUser(id);
+  };
 };
 
 const serviceUpdateUser = async (id, user) => {
-  const updated = await fetchUpdateUser(id, user)
+  const userById = await fetchUserById(id);
+  if (!userById) {
+    throw errorMessage(unauthorized, 'User not found');
+  } else {
+    const users = await fetchFindUsers();
+    const emailByUSers = users.map(user => user.email);
+    const emailExists = emailByUSers.find(e => e === user.email);
+    if (emailExists) {
+      throw errorMessage(conflict, 'Email already registered')
+    } else {
+      const response = await fetchUpdateUser(id, user);
 
-  return updated;
+      return response;
+    }
+  };
 };
 
 module.exports = {
@@ -88,4 +112,5 @@ module.exports = {
   serviceLogin,
   serviceDeleteUser,
   serviceUpdateUser,
+  serviceUserById,
 };

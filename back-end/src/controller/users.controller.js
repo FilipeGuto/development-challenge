@@ -4,6 +4,7 @@ const {
   serviceLogin,
   serviceDeleteUser,
   serviceUpdateUser,
+  serviceUserById,
 } = require('../service/users.services');
 const { created, sucess } = require('../../utils/dictionary/statusCode');
 
@@ -25,6 +26,17 @@ const controllerFindUsers = async (req, res, next) => {
     return res.status(sucess).json(users);
   } catch (error) {
     console.log(`GET ALL USERS -> ${error.message}`);
+    return next(error);
+  }
+};
+
+const controllerUserById = async (req, res, next) => {
+  try {
+    const users = await serviceUserById(req.params);
+
+    return res.status(sucess).json(users);
+  } catch (error) {
+    console.log(`GET USER BY ID -> ${error.message}`);
     return next(error);
   }
 };
@@ -70,4 +82,5 @@ module.exports = {
   controllerLogin,
   controllerDeleteUser,
   controllerUpdateUser,
+  controllerUserById,
 };

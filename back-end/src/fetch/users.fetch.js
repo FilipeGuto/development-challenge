@@ -72,9 +72,8 @@ const fetchUserById = async (id) => {
     };
 
     const { data } = await axios.request(options);
-    const user = data.Item;
 
-    return user;
+    return data.id;
   } catch (error) {
     console.error(error);
   }
