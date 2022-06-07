@@ -33,13 +33,13 @@ const serviceCreateUser = async (user) => {
   });
 
   if (error) {
-    throw errorMessage(badRequest, 'Invalid entries. Try again.');
+    throw errorMessage(badRequest, 'Dados invalidos, tente novamente');
   }
 
   const users = await fetchUsersLogin(email);
   const emailByUSers = users.map(user => user.email);
   const emailExists = emailByUSers.find(e => e === email);
-  if (emailExists) throw errorMessage(conflict, 'Email already registered');
+  if (emailExists) throw errorMessage(conflict, 'Email já cadastrado');
   const createUser = await fetchCreateUser(user);
 
   return createUser;
@@ -72,7 +72,7 @@ const serviceLogin = async (user) => {
     !passwordCorrect ||
     passwordCorrect !== password
   ) {
-    throw errorMessage(unauthorized, 'Incorrect username or password');
+    throw errorMessage(unauthorized, 'Email ou senha incorretos');
   }
 
   return (user);
@@ -82,7 +82,7 @@ const serviceDeleteUser = async (id) => {
   const userById = await fetchUserById(id);
 
   if (!userById) {
-    throw errorMessage(unauthorized, 'User not found');
+    throw errorMessage(unauthorized, 'Usuario não encontrado');
   } else {
     await fetchDeleteUser(id);
   };
@@ -91,13 +91,13 @@ const serviceDeleteUser = async (id) => {
 const serviceUpdateUser = async (id, user) => {
   const userById = await fetchUserById(id);
   if (!userById) {
-    throw errorMessage(unauthorized, 'User not found');
+    throw errorMessage(unauthorized, 'Usuario não encontrado');
   } else {
     const users = await fetchFindUsers();
     const emailByUSers = users.map(user => user.email);
     const emailExists = emailByUSers.find(e => e === user.email);
     if (emailExists) {
-      throw errorMessage(conflict, 'Email already registered')
+      throw errorMessage(conflict, 'Email já cadrastrado')
     } else {
       const response = await fetchUpdateUser(id, user);
 
