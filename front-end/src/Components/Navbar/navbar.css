@@ -1,9 +1,10 @@
 :root {
-  --cor-navbar: #1a8daf;
-  --teste1: #20dad8;
-  --teste2: #9bebe9;
-  --teste3: #17599e;
-  --teste4: #122f53;
+  --primary: #006d77;
+  --secondary: #83c5be;
+  --details: #edf6f9;
 }
 
-
+.btn-login {
+  margin-right: 1rem !important;
+  border: 1px solid var(--details) !important;
+}

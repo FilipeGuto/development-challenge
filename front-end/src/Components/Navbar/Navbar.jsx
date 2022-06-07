@@ -1,5 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
+import Menu from "../Menu/Menu";
 
 import {
   Button,
@@ -10,31 +11,10 @@ import {
   Zoom,
   useScrollTrigger,
   Fab,
-  CssBaseline,
-  ThemeProvider,
 } from "@mui/material";
 
-import MenuIcon from "@mui/icons-material/Menu";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import "./navbar.css";
-
-import { createTheme } from "@mui/material/styles";
-
-const theme = createTheme({
-  status: {
-    danger: "#e53e3e",
-  },
-  palette: {
-    primary: {
-      main: "#1a8daf",
-      darker: "#053e85",
-    },
-    neutral: {
-      main: "#64748B",
-      contrastText: "#fff",
-    },
-  },
-});
+import './navbar.css';
 
 function ScrollTop(props) {
   const { children, window } = props;
@@ -70,35 +50,35 @@ function ScrollTop(props) {
   );
 }
 
-ScrollTop.propTypes = {
-  children: PropTypes.element.isRequired,
-  window: PropTypes.func,
-};
 
 export default function Navbar(props) {
+  const navigate = useNavigate();
+
   return (
-    <CssBaseline>
-      <ThemeProvider theme={theme}>
-        <Box sx={{ flexGrow: 1 }}>
-          <AppBar className="navbar">
-            <Toolbar>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                MEDPAGE
-              </Typography>
-              <Button color="inherit" className="nav-btn">
-                Entrar
-              </Button>
-              <MenuIcon />
-            </Toolbar>
-          </AppBar>
-          <Toolbar id="back-to-top-anchor" />
-        </Box>
-        <ScrollTop {...props}>
-          <Fab color="primary" size="small" aria-label="scroll back to top">
-            <KeyboardArrowUpIcon />
-          </Fab>
-        </ScrollTop>
-      </ThemeProvider>
-    </CssBaseline>
+    <>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar>
+          <Toolbar>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              MEDPAGE
+            </Typography>
+            <Button
+              onClick={() => navigate("/login")}
+              color="inherit"
+              className="btn-login"
+            >
+              Entrar
+            </Button>
+            <Menu />
+          </Toolbar>
+        </AppBar>
+        <Toolbar id="back-to-top-anchor" />
+      </Box>
+      <ScrollTop {...props}>
+        <Fab color="primary" size="small" aria-label="scroll back to top">
+          <KeyboardArrowUpIcon />
+        </Fab>
+      </ScrollTop>
+    </>
   );
-}
+};

@@ -1,11 +1,34 @@
-import { CssBaseline } from "@mui/material";
-import { Home } from "../src/Pages"
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { Home, Login } from "../src/Pages";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import { createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#006d77",
+    },
+  },
+});
+
 
 function App() {
   return (
-    <CssBaseline>
-      <Home />
-    </CssBaseline>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <CssBaseline>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </CssBaseline>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 
