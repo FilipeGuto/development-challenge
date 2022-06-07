@@ -1,5 +1,9 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { Home, Login } from "../src/Pages";
+import {
+  Home,
+  Login,
+  Register,
+} from "../src/Pages";
 import {
   BrowserRouter,
   Routes,
@@ -25,6 +29,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+
           </Routes>
         </CssBaseline>
       </ThemeProvider>
