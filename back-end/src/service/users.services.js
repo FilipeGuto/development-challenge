@@ -66,6 +66,11 @@ const serviceLogin = async (user) => {
   const emailByUSers = userInfo.map(user => user.email);
   const emailCorrect = emailByUSers.find(e => e === email);
 
+  const allUsers = userInfo.map(user => user);
+  const userLogin = allUsers.find(e => e.email === email);
+
+  const {password: _password, ...useWithoutPassword } = userLogin;
+
   if (
     !emailCorrect ||
     emailCorrect !== email ||
@@ -75,7 +80,9 @@ const serviceLogin = async (user) => {
     throw errorMessage(unauthorized, 'Email ou senha incorretos');
   }
 
-  return (user);
+  
+
+  return (useWithoutPassword);
 };
 
 const serviceDeleteUser = async (id) => {
