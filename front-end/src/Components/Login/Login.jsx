@@ -50,8 +50,10 @@ export default function Login() {
     } else {
       const login = await userLogin(userInfo);
       if (login.message) {
-        setError("Email ou senha incorretos");
+        setError(login.message);
       } else {
+        console.log(login);
+        localStorage.setItem("user", JSON.stringify(login));
         navigate("/");
       }
     }

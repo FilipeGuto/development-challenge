@@ -55,6 +55,7 @@ export default function Register() {
           password: create.password,
         };
         await userLogin(login);
+        localStorage.setItem("user", JSON.stringify(login));
         navigate("/");
       }
     }
