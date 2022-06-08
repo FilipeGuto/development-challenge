@@ -73,7 +73,7 @@ const fetchUserById = async (id) => {
 
     const { data } = await axios.request(options);
 
-    return data.id;
+    return data;
   } catch (error) {
     console.error(error);
   }

@@ -32,7 +32,8 @@ const controllerFindUsers = async (req, res, next) => {
 
 const controllerUserById = async (req, res, next) => {
   try {
-    const users = await serviceUserById(req.params);
+    const { id } = req.params;
+    const users = await serviceUserById(id);
 
     return res.status(sucess).json(users);
   } catch (error) {
