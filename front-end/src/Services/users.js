@@ -67,8 +67,25 @@ const userById = async (user) => {
   }
 };
 
+const deleteUserById = async (user) => {
+  try {
+    const options = {
+      method: 'DELETE',
+      url: `${baseURL}/users/${user}`,
+    };
+
+    const { data } = await axios.request(options);
+
+    return data;
+  } catch (error) {
+    return console.log(error);
+  }
+};
+
+
 export {
   userLogin,
   userCreate,
   userById,
+  deleteUserById,
 };

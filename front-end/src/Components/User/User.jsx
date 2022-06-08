@@ -40,7 +40,15 @@ export default function User() {
   return (
     <>
       <Button onClick={() => navigate("/")}>Voltar</Button>
-      <Account />
+      <Account
+        title="Ver minhas assinaturas"
+        subtitle="Você tem 01 assinaturas ativas"
+        text="Assinatura: PartMED"
+        btnConfirm="Cancelar assinatura"
+        btnWarning="Aviso"
+        btnNo="Voltar"
+        paragraph="Confirme sua decisão"
+      />
       <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
         <ListItem>
           <ListItemAvatar>
@@ -84,7 +92,16 @@ export default function User() {
         </ListItem>
       </List>
       <Button>Atualizar</Button>
-      <Button>Excluir</Button>
+      <Account
+        user={data.id}
+        title="Excluir"
+        text="Deseja excluir seu usuario do nosso sistema?"
+        btnConfirm="Confirmar"
+        btnWarning="Aviso"
+        btnYesDelete="Sim"
+        btnNo="Voltar"
+        paragraph="Confirme sua decisão"
+      />
     </>
   );
 }

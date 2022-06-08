@@ -2,6 +2,8 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
+import { deleteUserById } from '../../Services/users';
+import { useNavigate } from "react-router-dom";
 
 const style = {
   position: 'absolute',
@@ -17,8 +19,10 @@ const style = {
   pb: 3,
 };
 
-function ChildModal() {
+function ChildModal(props) {
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -26,13 +30,22 @@ function ChildModal() {
     setOpen(false);
   };
 
+  const handleDelete = async(user) => {
+    const teste = await deleteUserById(user);
+
+    if(teste.message) {
+      localStorage.clear();
+      navigate("/");
+    }
+  }
+
   return (
     <React.Fragment>
       <Button
       color="warning"
       onClick={handleOpen}
       >
-        Cancelar assinatura
+        {props.btnConfirm}
       </Button>
       <Modal
         hideBackdrop
@@ -42,19 +55,20 @@ function ChildModal() {
         aria-describedby="child-modal-description"
       >
         <Box sx={{ ...style, width: 200 }}>
-          <h2 id="child-modal-title">Aviso</h2>
+          <h2 id="child-modal-title">{props.btnWarning}</h2>
           <p id="child-modal-description">
-          Tem certeza que deseja cancelar sua assinatura?
+          {props.paragraph}
           </p>
-          <Button onClick={handleClose}>Não</Button>
-          <Button onClick={handleClose}>Sim</Button>
+          <Button onClick={handleClose}>{props.btnNo}</Button>
+          <Button onClick={() => handleDelete(props.user)}>{props.btnYesDelete}</Button>
+          {/* <Button onClick={() => handle()}>{props.btnYes}</Button> */}
         </Box>
       </Modal>
     </React.Fragment>
   );
 }
 
-export default function Account() {
+export default function Account(props) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -65,7 +79,7 @@ export default function Account() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Ver minha assinatura</Button>
+      <Button onClick={handleOpen}>{props.title}</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -73,11 +87,18 @@ export default function Account() {
         aria-describedby="parent-modal-description"
       >
         <Box sx={{ ...style, width: 400 }}>
-          <h2 id="parent-modal-title">Você possui "" ativa</h2>
+          <h2 id="parent-modal-title">{props.subtitle}</h2>
           <p id="parent-modal-description">
-            """"""
+            {props.text}
           </p>
-          <ChildModal />
+          <ChildModal
+          user={props.user}
+          btnConfirm={props.btnConfirm}
+          btnWarning={props.btnWarning}
+          btnYesDelete={props.btnYesDelete}
+          btnNo={props.btnNo}
+          paragraph={props.paragraph}
+          />
         </Box>
       </Modal>
     </div>
