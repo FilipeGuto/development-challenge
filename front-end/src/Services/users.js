@@ -82,10 +82,33 @@ const deleteUserById = async (user) => {
   }
 };
 
+const userUpdateById = async (user) => {
+  try {
+    const options = {
+      method: 'PUT',
+      url: `${baseURL}/users/${user.id}`,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data:
+      {
+        ...user
+      }
+    };
+
+    const { data } = await axios.request(options);
+
+    return data;
+  } catch (error) {
+    return console.log(error);
+  }
+};
+
 
 export {
   userLogin,
   userCreate,
   userById,
   deleteUserById,
+  userUpdateById,
 };

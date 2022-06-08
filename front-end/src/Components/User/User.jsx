@@ -91,7 +91,11 @@ export default function User() {
           <ListItemText primary="Cidade" secondary={data.address.city} />
         </ListItem>
       </List>
-      <Button>Atualizar</Button>
+      <Button
+      onClick={() => navigate('/update')}
+      >
+        Atualizar
+      </Button>
       <Account
         user={data.id}
         title="Excluir"

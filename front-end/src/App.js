@@ -4,6 +4,7 @@ import {
   Login,
   Register,
   User,
+  UpdateUser,
 } from "../src/Pages";
 
 import {
@@ -33,6 +34,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/user/:id" element={<User />} />
+            <Route path="/update" element={<UpdateUser />} />
           </Routes>
         </CssBaseline>
       </ThemeProvider>
