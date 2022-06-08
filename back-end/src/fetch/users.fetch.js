@@ -86,17 +86,7 @@ const fetchUpdateUser = async (id, user) => {
       url: `${baseURL}/users/${id}`,
       headers: { 'Content-Type': 'application/json' },
       data:
-      {
-        fullName: user.fullName,
-        email: user.email,
-        password: user.password,
-        birthDate: user.birthDate,
-        address: {
-          country: user.address.country,
-          state: user.address.state,
-          city: user.address.city
-        },
-      }
+      { ...user }
     };
 
     const { data } = await axios.request(options);
