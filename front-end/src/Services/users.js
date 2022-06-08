@@ -52,7 +52,23 @@ const userLogin = async (user) => {
   }
 };
 
+const userById = async (user) => {
+  try {
+    const options = {
+      method: 'GET',
+      url: `${baseURL}/users/${user}`,
+    };
+
+    const { data } = await axios.request(options);
+
+    return data;
+  } catch (error) {
+    return console.log(error);
+  }
+};
+
 export {
   userLogin,
   userCreate,
+  userById,
 };

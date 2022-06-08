@@ -68,7 +68,7 @@ export default function Navbar(props) {
                 aria-label="user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                onClick={() => navigate("/user")}
+                onClick={() => navigate(`/user/${logged.id}`)}
                 color="inherit"
               >
                 <AccountCircle />

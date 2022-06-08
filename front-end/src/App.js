@@ -3,7 +3,9 @@ import {
   Home,
   Login,
   Register,
+  User,
 } from "../src/Pages";
+
 import {
   BrowserRouter,
   Routes,
@@ -30,7 +32,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-
+            <Route path="/user/:id" element={<User />} />
           </Routes>
         </CssBaseline>
       </ThemeProvider>

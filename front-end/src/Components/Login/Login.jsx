@@ -52,7 +52,6 @@ export default function Login() {
       if (login.message) {
         setError(login.message);
       } else {
-        console.log(login);
         localStorage.setItem("user", JSON.stringify(login));
         navigate("/");
       }
