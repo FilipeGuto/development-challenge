@@ -69,7 +69,7 @@ const serviceLogin = async (user) => {
   const allUsers = userInfo.map(user => user);
   const userLogin = allUsers.find(e => e.email === email);
 
-  const {password: _password, ...useWithoutPassword } = userLogin;
+  const { password: _password, ...useWithoutPassword } = userLogin;
 
   if (
     !emailCorrect ||
@@ -80,7 +80,7 @@ const serviceLogin = async (user) => {
     throw errorMessage(unauthorized, 'Email ou senha incorretos');
   }
 
-  
+
 
   return (useWithoutPassword);
 };
@@ -100,17 +100,10 @@ const serviceUpdateUser = async (id, user) => {
   if (!userById) {
     throw errorMessage(unauthorized, 'Usuario não encontrado');
   } else {
-    const users = await fetchFindUsers();
-    const emailByUSers = users.map(user => user.email);
-    const emailExists = emailByUSers.find(e => e === user.email);
-    if (emailExists) {
-      throw errorMessage(conflict, 'Email já cadrastrado')
-    } else {
-      const response = await fetchUpdateUser(id, user);
+    const response = await fetchUpdateUser(id, user);
 
-      return response;
-    }
-  };
+    return response;
+  }
 };
 
 module.exports = {
