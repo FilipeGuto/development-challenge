@@ -14,8 +14,8 @@ import logo from "../images/logo.png";
 
 export default function Home() {
   return (
-    <>
-      <Container maxWidth="xs">
+    <section id="Home" >
+      <Container className="container-page" maxWidth="xs">
         <Card sx={{ maxWidth: 345, mt: "1rem" }}>
           <CardMedia
           className="img-logo"
@@ -40,6 +40,6 @@ export default function Home() {
           </CardContent>
         </Card>
       </Container>
-    </>
+    </section>
   );
 }

@@ -65,14 +65,18 @@ export default function Navbar(props) {
               MEDPAGE
             </Typography>
             <IconButton
+              className="icon-perfil"
               aria-label="user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={() => navigate(`/user/${logged.id}`)}
               color="inherit"
             >
-              <AccountCircle />
-              <Typography variant="h6">PERFIL</Typography>
+              <AccountCircle 
+              />
+              <Typography className="name-perfil" variant="h6">
+                PERFIL
+              </Typography>
             </IconButton>
             <Menu />
           </Toolbar>

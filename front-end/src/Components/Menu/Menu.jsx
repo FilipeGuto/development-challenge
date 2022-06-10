@@ -1,6 +1,7 @@
 import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
 import { IconButton, Menu, MenuItem } from "@mui/material";
+import "./menu.css";
 
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -82,16 +83,19 @@ export default function CustomizedMenus() {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose} disableRipple>
-          HOME
+          <a className="link-menu" href="#Home">HOME</a>
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
-          SOBRE
+          <a className="link-menu" href="#Notes">AVALIAÇÕES</a>
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
-          AVALIAÇÃO
+          <a className="link-menu" href="#Partners">PARCEIROS</a>
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
-          CONTATO
+          <a className="link-menu" href="#Plans">PLANOS</a>
+        </MenuItem>
+        <MenuItem onClick={handleClose} disableRipple>
+          <a className="link-menu" href="#Contact">CONTATOS</a>
         </MenuItem>
       </StyledMenu>
     </div>

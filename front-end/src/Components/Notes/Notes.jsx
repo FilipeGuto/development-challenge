@@ -23,8 +23,8 @@ export default function Notes() {
     };
   });
   return (
-    <>
-      <Box sx={{ flexGrow: 1, overflow: "hidden", px: 3 }}>
+    <section id="Notes">
+      <Box className="container-page" sx={{ flexGrow: 1, overflow: "hidden", px: 3 }}>
         <StyledPaper
           sx={{
             my: 1,
@@ -90,6 +90,6 @@ export default function Notes() {
           </Grid>
         </StyledPaper>
       </Box>
-    </>
+    </section>
   );
 }

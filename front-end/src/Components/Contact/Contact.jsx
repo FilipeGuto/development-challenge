@@ -9,7 +9,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export default function Contact() {
   return (
-    <Box>
+    <Box id="Contact">
       <nav className="nav-contact">
         <List>
           <ListItem disablePadding>

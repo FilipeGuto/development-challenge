@@ -32,7 +32,7 @@ export default function Hospital() {
   ];
 
   return (
-    <>
+    <section id="Partners">
       <ImageList sx={{ width: 350, height: 450 }}>
         {itemData.map((item) => (
           <ImageListItem key={item.img} className="img-card">
@@ -46,6 +46,6 @@ export default function Hospital() {
           </ImageListItem>
         ))}
       </ImageList>
-    </>
+    </section>
   );
 }

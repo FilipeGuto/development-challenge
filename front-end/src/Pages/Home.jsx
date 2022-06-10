@@ -25,12 +25,14 @@ export default function HomePage() {
       <Hospital />
       </Container>
       <Team />
-      <Container>
+      <Container className="container-plans">
       <h2>Faça parte voce também</h2>
       <Plans />
       </Container>
+      <Container className="container-plans">
       <h2>Contato</h2>
       <Contact />
+      </Container>
       </div>
     </div>
   );

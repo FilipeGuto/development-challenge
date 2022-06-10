@@ -6,3 +6,8 @@
 .plans {
   position: static !important;
 }
+
+.container-plans {
+  border-top: 1px solid #006d77 !important;
+  margin-top: 1rem !important;
+}

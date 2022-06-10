@@ -30,6 +30,7 @@ export default function Plans() {
 
   return (
     <List
+      id="Plans"
       sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
       component="nav"
       className="list-plans"
