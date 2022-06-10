@@ -14,6 +14,7 @@ import {
   Button,
   CardMedia,
   Typography,
+  CircularProgress,
 } from "@mui/material";
 
 import Visibility from "@mui/icons-material/Visibility";
@@ -29,6 +30,7 @@ export default function Login() {
   });
   const [empty, setEmpty] = React.useState("");
   const [error, setError] = React.useState("");
+  const [loading, setLoading] = React.useState("");
   const navigate = useNavigate();
 
   const handleChange = (prop) => (event) => {
@@ -55,6 +57,7 @@ export default function Login() {
         setEmpty("");
       }, 1000);
     } else {
+      setLoading(<CircularProgress />);
       const login = await userLogin(userInfo);
       if (login.message) {
         setError(login.message);
@@ -117,6 +120,7 @@ export default function Login() {
           ENTRAR
         </Button>
         <Typography variant="subtitle1">
+          {loading}
           {empty}
           {error}
         </Typography>

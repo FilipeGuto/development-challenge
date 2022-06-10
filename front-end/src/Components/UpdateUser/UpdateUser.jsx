@@ -5,9 +5,11 @@ import { userById, userUpdateById } from "../../Services/users";
 import "./update.css";
 
 import { CircularProgress, Box, TextField, Button } from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 export default function UpdateUser() {
   const [data, setData] = useState({});
+  const [check, setCheck] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [country, setCountry] = useState("");
@@ -31,6 +33,8 @@ export default function UpdateUser() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setCheck(<CircularProgress />);
+
     const updateUser = {
       id: data.id,
       fullName: _.isEmpty(name) ? data.fullName : name,
@@ -45,7 +49,16 @@ export default function UpdateUser() {
     };
 
     const user = await userUpdateById(updateUser);
-    localStorage.setItem("user", JSON.stringify(user));
+
+    if (user.message) {
+      setCheck("Erro na sua solicitação");
+    } else {
+      localStorage.setItem("user", JSON.stringify(user));
+      setCheck(<CheckCircleIcon className="check-icon" fontSize="large" />);
+      setTimeout(() => {
+        navigate(`/user/${user.id}`);
+      }, 1000);
+    }
   };
 
   return (
@@ -133,6 +146,7 @@ export default function UpdateUser() {
         <Button variant="contained" type="submit">
           Atualizar
         </Button>
+        {check}
       </Box>
     </>
   );

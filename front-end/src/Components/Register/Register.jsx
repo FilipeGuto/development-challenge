@@ -51,6 +51,7 @@ export default function Register() {
         setEmpty("")
       }, 1000)
     } else {
+      setLoading(<CircularProgress />)
       const create = await userCreate(userInfo);
       if (create.message) {
         setError(create.message);
@@ -62,7 +63,6 @@ export default function Register() {
           email: create.email,
           password: create.password,
         };
-        setLoading(<CircularProgress />)
         setTimeout(async () => {
           const logged = await userLogin(login);
           localStorage.setItem("user", JSON.stringify(logged));

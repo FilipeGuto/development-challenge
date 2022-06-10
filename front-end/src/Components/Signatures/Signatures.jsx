@@ -1,9 +1,12 @@
 import * as React from "react";
+import _ from "lodash";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import "./signature.css";
 import { Typography } from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+
 
 const style = {
   position: "absolute",
@@ -18,6 +21,8 @@ const style = {
 
 function ChildModal(props) {
   const [open, setOpen] = React.useState(false);
+  const [checked, setChecked] = React.useState();
+  const plan = JSON.parse(localStorage.getItem("plan"));
 
   const handleOpen = () => {
     setOpen(true);
@@ -27,19 +32,35 @@ function ChildModal(props) {
   };
 
   const handleClear = () => {
+    setChecked(<CheckCircleIcon className="check-icon" fontSize="large" />);
     localStorage.removeItem("plan");
-    setOpen(false);
+    window.location.reload();
   };
 
   return (
     <>
-      <Button variant="contained" className="btn-close-modal"
-      onClick={props.close}>
+      <Button
+        variant="contained"
+        className="btn-close-modal"
+        onClick={props.close}
+      >
         {props.btnNo}
       </Button>
-      <Button variant="contained" className="btn-warning" onClick={handleOpen}>
-        {props.btnConfirm}
-      </Button>
+      {_.isEmpty(plan) ? (
+        <Button
+          dissabled
+        >
+          {props.btnConfirm}
+        </Button>
+      ) : (
+        <Button
+          variant="contained"
+          className="btn-warning"
+          onClick={handleOpen}
+        >
+          {props.btnConfirm}
+        </Button>
+      )}
       <Modal
         hideBackdrop
         open={open}
@@ -68,6 +89,7 @@ function ChildModal(props) {
           >
             {props.btnYesClear}
           </Button>
+          {checked}
         </Box>
       </Modal>
     </>

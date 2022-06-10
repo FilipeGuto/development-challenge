@@ -72,7 +72,7 @@ export default function Navbar(props) {
               color="inherit"
             >
               <AccountCircle />
-              <Typography variant="h5">PERFIL</Typography>
+              <Typography variant="h6">PERFIL</Typography>
             </IconButton>
             <Menu />
           </Toolbar>

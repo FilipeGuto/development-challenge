@@ -14,6 +14,7 @@
 
 .top-options {
   border-bottom: 2px solid #006d77 !important;
+  background-color: #f5f5ef !important;
   display: flex !important;
   justify-content: space-between !important;
   padding: 1rem !important;
@@ -24,4 +25,5 @@
   display: flex !important;
   justify-content: space-between !important;
   padding: 1rem !important;
+  background-color: #f5f5ef !important;
 }

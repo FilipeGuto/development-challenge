@@ -5,6 +5,8 @@ import Button from "@mui/material/Button";
 import { deleteUserById } from "../../Services/users";
 import { useNavigate } from "react-router-dom";
 import { Typography } from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import "./deleteuser.css";
 
 const style = {
   position: "absolute",
@@ -19,6 +21,7 @@ const style = {
 
 function ChildModal(props) {
   const [open, setOpen] = React.useState(false);
+  const [checked, setChecked] = React.useState();
   const navigate = useNavigate();
 
   const handleOpen = () => {
@@ -29,9 +32,10 @@ function ChildModal(props) {
   };
 
   const handleDelete = async (user) => {
-    const teste = await deleteUserById(user);
+    setChecked(<CheckCircleIcon className="check-icon" fontSize="large" />);
 
-    if (teste.message) {
+    const deleted = await deleteUserById(user);
+    if (deleted.message) {
       localStorage.clear();
       navigate("/");
     }
@@ -77,6 +81,7 @@ function ChildModal(props) {
           >
             {props.btnYesDelete}
           </Button>
+          {checked}
         </Box>
       </Modal>
     </>
