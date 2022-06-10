@@ -62,6 +62,7 @@ export default function Navbar(props) {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               MEDPAGE
             </Typography>
+            <div className="box-menu">
             <Button
               onClick={() => navigate("/login")}
               color="inherit"
@@ -70,6 +71,7 @@ export default function Navbar(props) {
               Entrar
             </Button>
             <Menu />
+            </div>
           </Toolbar>
         </AppBar>
         <Toolbar id="back-to-top-anchor" />

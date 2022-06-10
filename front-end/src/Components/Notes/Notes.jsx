@@ -24,6 +24,9 @@ export default function Notes() {
   });
   return (
     <section id="Notes">
+      <Typography variant="h5" className="home-title">
+          Avaliações
+        </Typography>
       <Box className="container-page" sx={{ flexGrow: 1, overflow: "hidden", px: 3 }}>
         <StyledPaper
           sx={{

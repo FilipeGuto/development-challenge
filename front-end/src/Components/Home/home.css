@@ -2,7 +2,37 @@
   border: 1px solid #006d77 !important;
 }
 
+.home-title {
+  text-transform: uppercase !important;
+  margin: 1rem !important;
+}
+
 .container-page {
   height: 100vh !important;
   border-bottom: 1px solid #006d77 !important;
+}
+
+@media screen and (min-width: 380px) {
+  .container-home {
+    height: 100vh !important;
+    display: flex !important;
+    width: 100% !important;
+    margin: none !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .card-home {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 5rem !important;
+  }
+
+  .img-logo {
+    border: 1px solid #006d77 !important;
+    width: 80% !important;
+    height: 60% !important;
+  }
 }

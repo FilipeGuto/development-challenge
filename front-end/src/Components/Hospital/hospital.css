@@ -5,3 +5,17 @@
   align-items: center !important;
   gap: 5px !important;
 }
+
+@media screen and (min-width: 380px) {
+  .img-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+  }
+
+  .img-card-partnrs {
+    width: 70% !important;
+    height: 50rem !important;
+  }
+}

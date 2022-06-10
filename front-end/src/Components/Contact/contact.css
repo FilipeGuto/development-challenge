@@ -7,3 +7,7 @@
 .link-lin, .link-git {
   color: #006d77 !important;
 }
+
+.box-contact {
+  border-top: 1px solid #006d77 !important;
+}

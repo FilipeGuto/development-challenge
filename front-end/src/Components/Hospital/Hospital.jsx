@@ -1,7 +1,7 @@
 import React from "react";
 import "./hospital.css";
 
-import { ImageList, ImageListItemBar, ImageListItem } from "@mui/material";
+import { ImageList, ImageListItemBar, ImageListItem, Typography } from "@mui/material";
 
 export default function Hospital() {
   const itemData = [
@@ -32,8 +32,11 @@ export default function Hospital() {
   ];
 
   return (
-    <section id="Partners">
-      <ImageList sx={{ width: 350, height: 450 }}>
+    <section id="Partners" className="img-container">
+      <Typography variant="h5" className="home-title">
+          Parceiros
+        </Typography>
+      <ImageList sx={{ width: 350, height: 450 }} className="img-card-partnrs">
         {itemData.map((item) => (
           <ImageListItem key={item.img} className="img-card">
             <img

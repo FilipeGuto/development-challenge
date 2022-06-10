@@ -11,3 +11,18 @@
   border-top: 1px solid #006d77 !important;
   margin-top: 1rem !important;
 }
+
+@media screen and (min-width: 380px) {
+  .container-planos {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    border-top: 1px solid #006d77 !important;
+  }
+
+  .list-plans {
+    width: 80% !important;
+    margin-bottom: 1rem !important;
+  }
+}

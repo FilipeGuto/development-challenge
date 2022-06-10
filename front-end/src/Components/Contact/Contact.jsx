@@ -6,10 +6,14 @@ import "./contact.css";
 
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { Typography } from "@mui/material";
 
 export default function Contact() {
   return (
-    <Box id="Contact">
+    <Box id="Contact" className="box-contact">
+      <Typography variant="h5" className="home-title">
+        Contatos
+      </Typography>
       <nav className="nav-contact">
         <List>
           <ListItem disablePadding>

@@ -33,3 +33,24 @@
   margin-bottom: 1rem !important;
   margin-top: 0.5rem !important;
 }
+
+@media screen and (min-width: 380px) {
+  .img-logo-login {
+    width: 50% !important;
+    height: 50% !important;
+  }
+
+  .container-login {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  .box-login {
+    max-width: 30rem !important;
+  }
+
+  .login-btn {
+    width: 10rem !important;
+  }
+}

@@ -11,6 +11,7 @@ import {
   ListItemButton,
   ListItemText,
   Collapse,
+  Typography,
 } from "@mui/material";
 
 import ExpandLess from "@mui/icons-material/ExpandLess";
@@ -29,74 +30,96 @@ export default function Plans() {
   };
 
   return (
-    <List
-      id="Plans"
-      sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
-      component="nav"
-      className="list-plans"
-      aria-labelledby="nested-list-subheader"
-      subheader={
-        <ListSubheader component="div" className="plans">
-          Nossos Planos
-        </ListSubheader>
-      }
-    >
-      <ListItemButton onClick={handleClick}>
-        <ListItemText primary="Padrão" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItemButton>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItem sx={{ pl: 4 }}>
-            <ul>
-              <li>Atendimento no site 24/7</li>
-              <li>1 consulta de prioridade no mês</li>
-              <li>Exames e Laudos em até 48h*</li>
-            </ul>
-            {_.isEmpty(user) ? (
-              <Button onClick={() => navigate("/login")}>
-                Padrão - $120,00
-              </Button>
-            ) : (
-              <Button onClick={() => setPlan({
-                qtd: 1,
-                plano: "Plano Padrão"
-              })}>
-                Padrão - $120,00
-              </Button>
-            )}
-          </ListItem>
-        </List>
-      </Collapse>
-      <ListItemButton onClick={handleClick}>
-        <ListItemText primary="Completo" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItemButton>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItem sx={{ pl: 4 }}>
-            <ul>
-              <li>Atendimento no site 24/7</li>
-              <li>3 consultas de prioridade no mês</li>
-              <li>Exames e Laudos em até 24h*</li>
-              <li>Atendimento exclusivo em hospitais parceiros</li>
-              <li>Tabela de consultas de acordo com seu perfil</li>
-            </ul>
-            {_.isEmpty(user) ? (
-              <Button onClick={() => navigate("/login")}>
-                Completo - $220,00
-              </Button>
-            ) : (
-              <Button onClick={() => setPlan({
-                qtd: 1,
-                plano: "Plano Completo"
-              })}>
-                Completo - $220,00
-              </Button>
-            )}
-          </ListItem>
-        </List>
-      </Collapse>
-    </List>
+    <section className="container-planos">
+      <Typography variant="h5" className="home-title">
+        Faça parte você também
+      </Typography>
+      <List
+        id="Plans"
+        sx={{ width: "100%", bgcolor: "background.paper" }}
+        component="nav"
+        className="list-plans"
+        aria-labelledby="nested-list-subheader"
+        subheader={
+          <ListSubheader component="div" className="plans">
+            Nossos Planos
+          </ListSubheader>
+        }
+      >
+        <ListItemButton onClick={handleClick}>
+          <ListItemText primary="Padrão" />
+          {open ? <ExpandLess /> : <ExpandMore />}
+        </ListItemButton>
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItem sx={{ pl: 4 }}>
+              <ul>
+                <li>Atendimento no site 24/7</li>
+                <li>1 consulta de prioridade no mês</li>
+                <li>Exames e Laudos em até 48h*</li>
+              </ul>
+            </ListItem>
+            <div>
+              {_.isEmpty(user) ? (
+                <Button variant="contained" onClick={() => navigate("/login")}>
+                  Padrão - $120,00
+                </Button>
+              ) : (
+                <Button
+                  variant="contained"
+                  onClick={() =>
+                    setPlan({
+                      qtd: 1,
+                      plano: "Plano Padrão",
+                    })
+                  }
+                >
+                  Padrão - $120,00
+                </Button>
+              )}
+            </div>
+          </List>
+        </Collapse>
+        <ListItemButton onClick={handleClick}>
+          <ListItemText primary="Completo" />
+          {open ? <ExpandLess /> : <ExpandMore />}
+        </ListItemButton>
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItem sx={{ pl: 4 }}>
+              <ul>
+                <li>Atendimento no site 24/7</li>
+                <li>3 consultas de prioridade no mês</li>
+                <li>Exames e Laudos em até 24h*</li>
+                <li>Atendimento exclusivo em hospitais parceiros</li>
+                <li>Tabela de consultas de acordo com seu perfil</li>
+              </ul>
+            </ListItem>
+              <div>
+                {_.isEmpty(user) ? (
+                  <Button
+                    variant="contained"
+                    onClick={() => navigate("/login")}
+                  >
+                    Completo - $220,00
+                  </Button>
+                ) : (
+                  <Button
+                    variant="contained"
+                    onClick={() =>
+                      setPlan({
+                        qtd: 1,
+                        plano: "Plano Completo",
+                      })
+                    }
+                  >
+                    Completo - $220,00
+                  </Button>
+                )}
+              </div>
+          </List>
+        </Collapse>
+      </List>
+    </section>
   );
 }

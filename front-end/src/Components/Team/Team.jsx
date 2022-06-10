@@ -1,4 +1,5 @@
 import React from "react";
+import "./team.css";
 
 import {
   Typography,
@@ -16,8 +17,8 @@ import MasksIcon from "@mui/icons-material/Masks";
 
 export default function Team() {
   return (
-    <>
-      <List>
+    <section className="container-team">
+      <List className="container-list">
         <ListItem alignItems="flex-start">
           <ListItemAvatar>
             <Avatar>
@@ -26,11 +27,9 @@ export default function Team() {
           </ListItemAvatar>
           <ListItemText
             primary={
-                <Typography
-                variant="h5"
-                color="primary"
-                >+ 50
-                </Typography>
+              <Typography variant="h5" color="primary">
+                + 50
+              </Typography>
             }
             secondary={
               <>
@@ -56,11 +55,9 @@ export default function Team() {
           </ListItemAvatar>
           <ListItemText
             primary={
-              <Typography
-                variant="h5"
-                color="primary"
-                >+ 180
-                </Typography>
+              <Typography variant="h5" color="primary">
+                + 180
+              </Typography>
             }
             secondary={
               <React.Fragment>
@@ -86,11 +83,9 @@ export default function Team() {
           </ListItemAvatar>
           <ListItemText
             primary={
-              <Typography
-                variant="h5"
-                color="primary"
-                >+ 70
-                </Typography>
+              <Typography variant="h5" color="primary">
+                + 70
+              </Typography>
             }
             secondary={
               <React.Fragment>
@@ -108,6 +103,6 @@ export default function Team() {
           />
         </ListItem>
       </List>
-    </>
+    </section>
   );
 }

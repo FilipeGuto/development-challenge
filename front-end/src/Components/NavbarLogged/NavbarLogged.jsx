@@ -64,21 +64,22 @@ export default function Navbar(props) {
             <Typography variant="h6" component="div">
               MEDPAGE
             </Typography>
-            <IconButton
-              className="icon-perfil"
-              aria-label="user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={() => navigate(`/user/${logged.id}`)}
-              color="inherit"
-            >
-              <AccountCircle 
-              />
-              <Typography className="name-perfil" variant="h6">
-                PERFIL
-              </Typography>
-            </IconButton>
-            <Menu />
+            <div className="box-menu">
+              <IconButton
+                className="icon-perfil"
+                aria-label="user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={() => navigate(`/user/${logged.id}`)}
+                color="inherit"
+              >
+                <AccountCircle />
+                <Typography className="name-perfil" variant="h6">
+                  PERFIL
+                </Typography>
+              </IconButton>
+              <Menu />
+            </div>
           </Toolbar>
         </AppBar>
         <Toolbar id="back-to-top-anchor" />

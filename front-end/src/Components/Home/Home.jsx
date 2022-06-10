@@ -14,9 +14,12 @@ import logo from "../images/logo.png";
 
 export default function Home() {
   return (
-    <section id="Home" >
-      <Container className="container-page" maxWidth="xs">
-        <Card sx={{ maxWidth: 345, mt: "1rem" }}>
+    <section id="Home" className="section-home">
+      <Container className="container-page container-home">
+        <Typography variant="h5" className="home-title">
+          Quem somos?
+        </Typography>
+        <Card className="card-home">
           <CardMedia
           className="img-logo"
           component="img"

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from '@mui/material';
 import Contact from '../Components/Contact/Contact';
 import Home from '../Components/Home/Home';
 import Hospital from '../Components/Hospital/Hospital';
@@ -16,23 +15,12 @@ export default function HomePage() {
     <div>
       {!logged ? <Navbar /> : <NavbarLogged />}
       <div className="home">
-      <h2>Quem somos?</h2>
       <Home />
-      <h2>Avaliações</h2>
       <Notes />
-      <h2>Parceiros</h2>
-      <Container>
       <Hospital />
-      </Container>
       <Team />
-      <Container className="container-plans">
-      <h2>Faça parte voce também</h2>
       <Plans />
-      </Container>
-      <Container className="container-plans">
-      <h2>Contato</h2>
       <Contact />
-      </Container>
       </div>
     </div>
   );

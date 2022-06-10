@@ -53,7 +53,10 @@ export default function UpdateUser() {
     if (user.message) {
       setCheck("Erro na sua solicitação");
     } else {
-      localStorage.setItem("user", JSON.stringify(user));
+      const {password: _password, ...userWithoutPassword } = user
+
+      console.log(userWithoutPassword);
+      localStorage.setItem("user", JSON.stringify(userWithoutPassword));
       setCheck(<CheckCircleIcon className="check-icon" fontSize="large" />);
       setTimeout(() => {
         navigate(`/user/${user.id}`);
