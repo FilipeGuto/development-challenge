@@ -21,9 +21,11 @@ import KeyIcon from "@mui/icons-material/Key";
 import CakeIcon from "@mui/icons-material/Cake";
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import HomeIcon from "@mui/icons-material/Home";
+import DeleteUser from "../DeleteUser/DeleteUser";
 
 export default function User() {
   const [data, setData] = useState({});
+  const plan = JSON.parse(localStorage.getItem("plan"));
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -42,16 +44,19 @@ export default function User() {
   return (
     <Box className="box-user">
       <div className="top-options">
-      <Signatures
-        title="Minhas assinaturas"
-        subtitle="Você tem 01 assinaturas ativas"
-        text="Assinatura: PartMED"
-        btnConfirm="Cancelar assinatura"
-        btnWarning="Aviso"
-        btnNo="Voltar"
-        paragraph="Confirme sua decisão"
-      />
-      <Button variant="contained" onClick={() => navigate("/")}>Voltar</Button>
+        <Signatures
+          title="Minhas assinaturas"
+          subtitle={`Você tem ${_.isEmpty(plan) ? "0" : plan.qtd} assinatura ativa`}
+          text={`Assinatura: ${_.isEmpty(plan) ? "0" : plan.plano}`}
+          btnConfirm="Cancelar assinatura"
+          btnWarning="Aviso"
+          btnNo="Voltar"
+          paragraph="Confirme sua decisão"
+          btnYesClear="Sim"
+        />
+        <Button variant="contained" onClick={() => navigate("/")}>
+          Voltar
+        </Button>
       </div>
       <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
         <ListItem>
@@ -96,19 +101,19 @@ export default function User() {
         </ListItem>
       </List>
       <div className="bottom-options">
-      <Signatures
-        user={data.id}
-        title="Excluir"
-        text="Deseja excluir seu usuario do nosso sistema?"
-        btnConfirm="Confirmar"
-        btnWarning="Aviso"
-        btnYesDelete="Sim"
-        btnNo="Voltar"
-        paragraph="Confirme sua decisão"
-      />
-      <Button
-      variant="contained"
-      onClick={() => navigate("/update")}>Atualizar</Button>
+        <DeleteUser
+          user={data.id}
+          title="Excluir"
+          text="Deseja excluir seu usuario do nosso sistema?"
+          btnConfirm="Confirmar"
+          btnWarning="Aviso"
+          btnYesDelete="Sim"
+          btnNo="Voltar"
+          paragraph="Confirme sua decisão"
+        />
+        <Button variant="contained" onClick={() => navigate("/update")}>
+          Atualizar
+        </Button>
       </div>
     </Box>
   );

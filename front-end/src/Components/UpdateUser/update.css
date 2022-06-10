@@ -1,0 +1,28 @@
+.update-box {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 3rem !important;
+}
+
+.inputs-update {
+  border: 1px solid #006d77 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  width: 90% !important;
+  padding: 1rem !important;
+}
+
+.input-up {
+  width: 95% !important;
+}
+
+.btn-page-update {
+  margin-bottom: 1rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  border-bottom: 2px solid #006d77 !important;
+  align-items: center !important;
+  padding: 1rem;
+}

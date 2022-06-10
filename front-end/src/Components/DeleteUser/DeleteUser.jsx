@@ -2,7 +2,8 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
-import "./signature.css";
+import { deleteUserById } from "../../Services/users";
+import { useNavigate } from "react-router-dom";
 import { Typography } from "@mui/material";
 
 const style = {
@@ -18,6 +19,7 @@ const style = {
 
 function ChildModal(props) {
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
 
   const handleOpen = () => {
     setOpen(true);
@@ -26,15 +28,22 @@ function ChildModal(props) {
     setOpen(false);
   };
 
-  const handleClear = () => {
-    localStorage.removeItem("plan");
-    setOpen(false);
+  const handleDelete = async (user) => {
+    const teste = await deleteUserById(user);
+
+    if (teste.message) {
+      localStorage.clear();
+      navigate("/");
+    }
   };
 
   return (
     <>
-      <Button variant="contained" className="btn-close-modal"
-      onClick={props.close}>
+      <Button
+        variant="contained"
+        className="btn-close-modal"
+        onClick={props.close}
+      >
         {props.btnNo}
       </Button>
       <Button variant="contained" className="btn-warning" onClick={handleOpen}>
@@ -64,9 +73,9 @@ function ChildModal(props) {
           <Button
             variant="contained"
             className="btn-warning"
-            onClick={() => handleClear()}
+            onClick={() => handleDelete(props.user)}
           >
-            {props.btnYesClear}
+            {props.btnYesDelete}
           </Button>
         </Box>
       </Modal>
@@ -74,7 +83,7 @@ function ChildModal(props) {
   );
 }
 
-export default function Signature(props) {
+export default function DeleteUser(props) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -109,9 +118,9 @@ export default function Signature(props) {
             user={props.user}
             btnConfirm={props.btnConfirm}
             btnWarning={props.btnWarning}
+            btnYesDelete={props.btnYesDelete}
             btnNo={props.btnNo}
             paragraph={props.paragraph}
-            btnYesClear={props.btnYesClear}
             close={handleClose}
           />
         </Box>

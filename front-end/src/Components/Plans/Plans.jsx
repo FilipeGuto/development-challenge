@@ -57,7 +57,10 @@ export default function Plans() {
                 Padrão - $120,00
               </Button>
             ) : (
-              <Button onClick={() => setPlan("Padrão")}>
+              <Button onClick={() => setPlan({
+                qtd: 1,
+                plano: "Plano Padrão"
+              })}>
                 Padrão - $120,00
               </Button>
             )}
@@ -83,7 +86,10 @@ export default function Plans() {
                 Completo - $220,00
               </Button>
             ) : (
-              <Button onClick={() => setPlan("Completo")}>
+              <Button onClick={() => setPlan({
+                qtd: 1,
+                plano: "Plano Completo"
+              })}>
                 Completo - $220,00
               </Button>
             )}

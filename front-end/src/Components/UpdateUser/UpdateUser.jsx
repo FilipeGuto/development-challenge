@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import _ from "lodash";
 import { userById, userUpdateById } from "../../Services/users";
+import "./update.css";
 
 import { CircularProgress, Box, TextField, Button } from "@mui/material";
 
@@ -21,7 +22,7 @@ export default function UpdateUser() {
 
   if (_.isEmpty(data)) {
     return (
-      <div>
+      <div className="loading-user">
         <CircularProgress />
       </div>
     );
@@ -48,74 +49,91 @@ export default function UpdateUser() {
   };
 
   return (
-    <Box
-      component="form"
-      onSubmit={handleSubmit}
-      sx={{
-        "& .MuiTextField-root": { m: 1, width: "25ch" },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <div>
-        <TextField
-          label="Nome completo"
-          id="input.name"
-          defaultValue={data.fullName}
-          size="small"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <TextField
-          label="Email"
-          id="input.email"
-          defaultValue={data.email}
-          size="small"
-          disabled
-        />
-        <TextField
-          label="Senha"
-          id="input.password"
-          defaultValue={data.password}
-          size="small"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <TextField
-          label="Nascimento"
-          id="input.name"
-          defaultValue={data.birthDate}
-          size="small"
-          disabled
-        />
-        <div>Endereço</div>
-        <TextField
-          label="País"
-          id="input.country"
-          defaultValue={data.address.country}
-          size="small"
-          onChange={(e) => setCountry(e.target.value)}
-        />
-        <TextField
-          label="Estado"
-          id="input.state"
-          defaultValue={data.address.state}
-          size="small"
-          onChange={(e) => setState(e.target.value)}
-        />
-        <TextField
-          label="Cidade"
-          id="input.city"
-          defaultValue={data.address.city}
-          size="small"
-          onChange={(e) => setCity(e.target.value)}
-        />
-      </div>
-      <Button
-      type="submit"
+    <>
+      <Box className="btn-page-update">
+        <Button
+          variant="contained"
+          onClick={() => navigate(`/user/${data.id}`)}
+        >
+          Voltar
+        </Button>
+        <Button variant="contained" onClick={() => navigate("/")}>
+          home
+        </Button>
+      </Box>
+      <Box
+        className="update-box"
+        component="form"
+        onSubmit={handleSubmit}
+        sx={{
+          "& .MuiTextField-root": { m: 1, width: "25ch" },
+        }}
+        noValidate
+        autoComplete="off"
       >
-        Atualizar
-      </Button>
-      <Button onClick={() => navigate(`/user/${data.id}`)}>Voltar</Button>
-      <Button onClick={() => navigate("/")}>home</Button>
-    </Box>
+        <div className="inputs-update">
+          <TextField
+            className="input-up"
+            label="Nome completo"
+            id="input.name"
+            defaultValue={data.fullName}
+            size="small"
+            onChange={(e) => setName(e.target.value)}
+          />
+          <TextField
+            className="input-up"
+            label="Email"
+            id="input.email"
+            defaultValue={data.email}
+            size="small"
+            disabled
+          />
+          <TextField
+            className="input-up"
+            label="Senha"
+            id="input.password"
+            defaultValue={data.password}
+            size="small"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <TextField
+            className="input-up"
+            label="Nascimento"
+            id="input.name"
+            defaultValue={data.birthDate}
+            size="small"
+            disabled
+          />
+          <div>Endereço</div>
+          <TextField
+            className="input-up"
+            label="País"
+            id="input.country"
+            defaultValue={data.address.country}
+            size="small"
+            onChange={(e) => setCountry(e.target.value)}
+          />
+          <TextField
+            className="input-up"
+            label="Estado"
+            id="input.state"
+            defaultValue={data.address.state}
+            size="small"
+            onChange={(e) => setState(e.target.value)}
+          />
+          <TextField
+            className="input-up"
+            label="Cidade"
+            id="input.city"
+            defaultValue={data.address.city}
+            size="small"
+            onChange={(e) => setCity(e.target.value)}
+          />
+        </div>
+        <Button variant="contained" type="submit">
+          Atualizar
+        </Button>
+      </Box>
+    </>
   );
 }

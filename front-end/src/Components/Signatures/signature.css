@@ -1,0 +1,51 @@
+.btn-signature {
+  background-color: #006d77 !important;
+  color: #fff !important;
+}
+
+.btn-warning {
+  background-color: #b22222 !important;
+  color: #fff !important;
+}
+
+.modal {
+  border-radius: 30px !important;
+  width: 95% !important;
+  background-color: #006d77 !important;
+  display:flex !important;
+  flex-direction: column !important;
+  gap: 2rem !important;
+}
+
+.modal .modal-title{
+  color: #fff !important;
+  font-size: 1.3rem !important;
+}
+
+.modal .modal-subtitle{
+  color: #fff !important;
+  font-size: 1.3rem !important;
+}
+
+.modal-confirm {
+  border: 2px solid #006d77 !important;
+  border-radius: 30px !important;
+  width: 80% !important;
+  background-color: #fff !important;
+  display:flex !important;
+  flex-direction: column !important;
+  gap: 1rem !important;
+  align-items: center !important;
+}
+
+.modal-confirm .btn-warning{
+  width: 90%;
+}
+
+.modal-confirm .btn-close{
+  width: 90%;
+}
+
+.btn-close-modal {
+  border: 1px solid #fff !important;
+}
