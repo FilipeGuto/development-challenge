@@ -1,0 +1,7 @@
+.img-card {
+  border: 1px solid #006d77 !important;
+  position: static !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+}

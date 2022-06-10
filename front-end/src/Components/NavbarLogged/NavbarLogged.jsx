@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "./navbarLogged.css";
+
 import Menu from "../Menu/Menu";
 
 import {
@@ -13,7 +15,7 @@ import {
   Fab,
 } from "@mui/material";
 
-import AccountCircle from '@mui/icons-material/AccountCircle';
+import AccountCircle from "@mui/icons-material/AccountCircle";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 function ScrollTop(props) {
@@ -50,30 +52,28 @@ function ScrollTop(props) {
   );
 }
 
-
 export default function Navbar(props) {
   const navigate = useNavigate();
-  const logged = JSON.parse(localStorage.getItem('user'));
+  const logged = JSON.parse(localStorage.getItem("user"));
 
   return (
     <>
-      <Box sx={{ flexGrow: 1 }}>
+      <Box>
         <AppBar>
-          <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Toolbar className="nav-top">
+            <Typography variant="h6" component="div">
               MEDPAGE
             </Typography>
             <IconButton
-                size="large"
-                aria-label="user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={() => navigate(`/user/${logged.id}`)}
-                color="inherit"
-              >
-                <AccountCircle />
-                <>{logged.fullName}</>
-              </IconButton>
+              aria-label="user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={() => navigate(`/user/${logged.id}`)}
+              color="inherit"
+            >
+              <AccountCircle />
+              <Typography variant="h5">PERFIL</Typography>
+            </IconButton>
             <Menu />
           </Toolbar>
         </AppBar>
@@ -86,4 +86,4 @@ export default function Navbar(props) {
       </ScrollTop>
     </>
   );
-};
+}

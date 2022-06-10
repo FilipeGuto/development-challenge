@@ -75,7 +75,12 @@ export default function Navbar(props) {
         <Toolbar id="back-to-top-anchor" />
       </Box>
       <ScrollTop {...props}>
-        <Fab color="primary" size="small" aria-label="scroll back to top">
+        <Fab
+        color="primary"
+        size="small"
+        aria-label="scroll back to top"
+        className="btn-to-top"
+        >
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>

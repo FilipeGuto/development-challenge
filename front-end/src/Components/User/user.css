@@ -1,0 +1,27 @@
+.loading-user {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 50vh !important;
+}
+
+.box-user {
+  height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem !important;
+}
+
+.top-options {
+  border-bottom: 2px solid #006d77 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  padding: 1rem !important;
+}
+
+.bottom-options {
+  border-top: 2px solid #006d77 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  padding: 1rem !important;
+}

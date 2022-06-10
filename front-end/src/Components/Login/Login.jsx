@@ -1,5 +1,7 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "../images/logoLogin.png";
+import "./login.css";
 
 import {
   Box,
@@ -10,6 +12,8 @@ import {
   InputAdornment,
   IconButton,
   Button,
+  CardMedia,
+  Typography,
 } from "@mui/material";
 
 import Visibility from "@mui/icons-material/Visibility";
@@ -46,11 +50,17 @@ export default function Login() {
     const userInfo = values;
 
     if (!userInfo.email && !userInfo.password) {
-      setEmpty("Dados inválidos");
+      setEmpty("Preencha os todos campos");
+      setTimeout(() => {
+        setEmpty("");
+      }, 1000);
     } else {
       const login = await userLogin(userInfo);
       if (login.message) {
         setError(login.message);
+        setTimeout(() => {
+          setError("");
+        }, 1000);
       } else {
         localStorage.setItem("user", JSON.stringify(login));
         navigate("/");
@@ -59,19 +69,29 @@ export default function Login() {
   };
 
   return (
-    <Box>
-      <div>
+    <div className="container-login">
+      <CardMedia
+        className="img-logo-login"
+        component="img"
+        height="250"
+        image={logo}
+        alt="Logo"
+      />
+      <Box className="box-login">
         <TextField
+          className="input-email"
           label="Email"
           id="input-email"
-          sx={{ m: 1, width: "25ch" }}
+          sx={{ m: 1, width: "35ch" }}
           variant="filled"
           onChange={handleChange("email")}
-          />
-        <FormControl sx={{ m: 1, width: "25ch" }} variant="filled">
+          type="email"
+        />
+        <FormControl sx={{ m: 1, width: "35ch" }} variant="filled">
           <InputLabel htmlFor="filled-adornment-password">Password</InputLabel>
           <FilledInput
             id="filled-adornment-password"
+            className="input-password"
             type={values.showPassword ? "text" : "password"}
             value={values.password}
             onChange={handleChange("password")}
@@ -89,15 +109,24 @@ export default function Login() {
             }
           />
         </FormControl>
-      </div>
-      <Button onClick={() => handleLogin()}>ENTRAR</Button>
-      {empty}
-      {error}
-      <p>Ainda não tem conta?
-        <Button onClick={() => navigate("/register")}>
-          Clique aqui
+        <Button
+          variant="contained"
+          className="login-btn"
+          onClick={() => handleLogin()}
+        >
+          ENTRAR
         </Button>
-      </p>
-    </Box>
+        <Typography variant="subtitle1">
+          {empty}
+          {error}
+        </Typography>
+        <Typography variant="h6">
+          Ainda não tem conta?
+          <Button onClick={() => navigate("/register")}>
+            <Typography variant="body1">Clique aqui</Typography>
+          </Button>
+        </Typography>
+      </Box>
+    </div>
   );
 }

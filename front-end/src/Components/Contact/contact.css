@@ -1,0 +1,9 @@
+.nav-contact {
+  display: flex !important;
+  justify-content: space-around !important;
+  padding: 1rem !important;
+}
+
+.link-lin, .link-git {
+  color: #006d77 !important;
+}

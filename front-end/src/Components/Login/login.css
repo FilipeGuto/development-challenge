@@ -1,0 +1,35 @@
+.container-login {
+  height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 2.5rem !important;
+}
+
+.box-login {
+  border: 2px solid #006d77 !important;
+  background-color: #f5f5ef !important;
+  border-radius: 20px !important;
+  height: 45vh !important;
+  width: 95% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.input-email {
+  border: 2px solid #006d77 !important;
+  border-radius: 8px !important;
+  margin-top: 1.5rem !important;
+}
+.input-password {
+  border: 2px solid #006d77 !important;
+  border-radius: 8px !important;
+}
+
+.login-btn {
+  width: 80% !important;
+  margin-bottom: 1rem !important;
+  margin-top: 0.5rem !important;
+}

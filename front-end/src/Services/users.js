@@ -20,7 +20,7 @@ const userCreate = async (user) => {
         }
       }
     };
-
+    
     const { data } = await axios.request(options);
 
     return data;

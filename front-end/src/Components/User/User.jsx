@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import _ from "lodash";
 import { userById } from "../../Services/users";
 import { useNavigate } from "react-router-dom";
-import Account from "../Account/Account";
+import Signatures from "../Signatures/Signatures";
+import "./user.css";
 
 import {
   Button,
@@ -11,6 +12,7 @@ import {
   ListItemAvatar,
   ListItemText,
   CircularProgress,
+  Box,
 } from "@mui/material";
 
 import PersonIcon from "@mui/icons-material/Person";
@@ -31,17 +33,17 @@ export default function User() {
 
   if (_.isEmpty(data)) {
     return (
-      <div>
+      <div className="loading-user">
         <CircularProgress />
       </div>
     );
   }
 
   return (
-    <>
-      <Button onClick={() => navigate("/")}>Voltar</Button>
-      <Account
-        title="Ver minhas assinaturas"
+    <Box className="box-user">
+      <div className="top-options">
+      <Signatures
+        title="Minhas assinaturas"
         subtitle="Você tem 01 assinaturas ativas"
         text="Assinatura: PartMED"
         btnConfirm="Cancelar assinatura"
@@ -49,6 +51,8 @@ export default function User() {
         btnNo="Voltar"
         paragraph="Confirme sua decisão"
       />
+      <Button variant="contained" onClick={() => navigate("/")}>Voltar</Button>
+      </div>
       <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
         <ListItem>
           <ListItemAvatar>
@@ -91,12 +95,8 @@ export default function User() {
           <ListItemText primary="Cidade" secondary={data.address.city} />
         </ListItem>
       </List>
-      <Button
-      onClick={() => navigate('/update')}
-      >
-        Atualizar
-      </Button>
-      <Account
+      <div className="bottom-options">
+      <Signatures
         user={data.id}
         title="Excluir"
         text="Deseja excluir seu usuario do nosso sistema?"
@@ -106,6 +106,10 @@ export default function User() {
         btnNo="Voltar"
         paragraph="Confirme sua decisão"
       />
-    </>
+      <Button
+      variant="contained"
+      onClick={() => navigate("/update")}>Atualizar</Button>
+      </div>
+    </Box>
   );
 }
