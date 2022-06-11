@@ -19,7 +19,8 @@ export default function Team() {
   return (
     <section className="container-team">
       <List className="container-list">
-        <ListItem alignItems="flex-start">
+        <div className="list-items">
+        <ListItem>
           <ListItemAvatar>
             <Avatar>
               <LocalHospitalIcon />
@@ -47,7 +48,7 @@ export default function Team() {
           />
         </ListItem>
         <Divider variant="inset" component="li" />
-        <ListItem alignItems="flex-start">
+        <ListItem>
           <ListItemAvatar>
             <Avatar>
               <MedicalServicesIcon />
@@ -75,7 +76,7 @@ export default function Team() {
           />
         </ListItem>
         <Divider variant="inset" component="li" />
-        <ListItem alignItems="flex-start">
+        <ListItem>
           <ListItemAvatar>
             <Avatar>
               <MasksIcon />
@@ -102,6 +103,7 @@ export default function Team() {
             }
           />
         </ListItem>
+        </div>
       </List>
     </section>
   );
