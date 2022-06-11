@@ -36,7 +36,7 @@ export default function Hospital() {
       <Typography variant="h5" className="home-title">
           Parceiros
         </Typography>
-      <ImageList sx={{ width: 350, height: 450 }} className="img-card-partnrs">
+      <ImageList className="img-card-partnrs">
         {itemData.map((item) => (
           <ImageListItem key={item.img} className="img-card">
             <img

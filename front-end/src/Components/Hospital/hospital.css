@@ -6,12 +6,29 @@
   gap: 5px !important;
 }
 
+@media screen and (max-width: 450px) {
+  .img-container {
+    display: 100% !important;
+    height: 20rem !important;
+  }
+
+  .img-card-partnrs {
+    height: 5rem !important;
+    width: 90% !important;
+  }
+
+  .img-card {
+    width: 100% !important;
+  }
+}
+
 @media screen and (min-width: 380px) {
   .img-container {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     flex-direction: column !important;
+    height: 40rem !important;
   }
 
   .img-card-partnrs {
