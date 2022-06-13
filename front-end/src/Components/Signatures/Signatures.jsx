@@ -72,7 +72,7 @@ function ChildModal(props) {
           <Typography variant="h4" id="child-modal-title">
             {props.btnWarning}
           </Typography>
-          <Typography variant="subtitle1" id="child-modal-description">
+          <Typography className="plan-value" variant="subtitle1" id="child-modal-description">
             {props.paragraph}
           </Typography>
           <Button

@@ -60,6 +60,7 @@ export default function Login() {
       setLoading(<CircularProgress />);
       const login = await userLogin(userInfo);
       if (login.message) {
+        setLoading("")
         setError(login.message);
         setTimeout(() => {
           setError("");
@@ -76,7 +77,6 @@ export default function Login() {
       <CardMedia
         className="img-logo-login"
         component="img"
-        height="250"
         image={logo}
         alt="Logo"
       />

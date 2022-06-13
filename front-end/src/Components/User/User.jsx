@@ -47,10 +47,7 @@ export default function User() {
         <div className="top-options">
           <Signatures
             title="Minhas assinaturas"
-            subtitle={`Você tem ${
-              _.isEmpty(plan) ? "0" : plan.qtd
-            } assinatura ativa`}
-            text={`Assinatura: ${_.isEmpty(plan) ? "0" : plan.plano}`}
+            text={`Assinatura: ${_.isEmpty(plan) ? "0" : plan}`}
             btnConfirm="Cancelar assinatura"
             btnWarning="Aviso"
             btnNo="Voltar"

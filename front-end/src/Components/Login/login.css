@@ -61,3 +61,27 @@
     width: 10rem !important;
   }
 }
+
+@media screen and (min-width: 1000px) {
+  .img-logo-login {
+    width: 30rem !important;
+    height: 20rem !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
+  }
+
+  .container-login {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column  !important;
+    height: 100vh !important;
+    gap: 0 !important;
+    margin: 0 !important;
+  }
+
+  .box-login {
+    margin: 0 !important;
+    height: 23rem !important;
+  }
+}

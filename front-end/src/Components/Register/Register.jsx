@@ -48,16 +48,17 @@ export default function Register() {
     ) {
       setEmpty("Preencha todos os campos");
       setTimeout(() => {
-        setEmpty("")
-      }, 1000)
+        setEmpty("");
+      }, 1000);
     } else {
-      setLoading(<CircularProgress />)
+      setLoading(<CircularProgress />);
       const create = await userCreate(userInfo);
       if (create.message) {
+        setLoading("");
         setError(create.message);
         setTimeout(() => {
-          setError("")
-        }, 1000)
+          setError("");
+        }, 1000);
       } else {
         const login = {
           email: create.email,

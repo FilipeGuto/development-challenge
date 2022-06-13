@@ -49,4 +49,28 @@
   .btn-register {
     max-width: 50rem !important;
   }
+
+  .inputs-register, .input-birthDate {
+    width: 80% !important;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .inputs-register, .input-birthDate {
+    width: 80% !important;
+  }
+
+  .field-login {
+    margin: 0 !important;
+    height: 34rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+  }
+
+  .btn-register {
+    height: 2rem !important;
+    width: 30% !important;
+  }
 }
