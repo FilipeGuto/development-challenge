@@ -1,6 +1,20 @@
 .list-plans {
   border: 1px solid  #006d77 !important;
   position: static !important;
+  display: flex !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.list-plans ul {
+  list-style: none !important;
+  border-bottom: 1px solid #006d77 !important;
+  border-top: 1px solid #006d77 !important;
+  text-transform: uppercase !important;
+  padding: 1rem !important;
+  text-align: center !important;
 }
 
 .plans {
@@ -9,16 +23,16 @@
 
 .container-plans {
   border-top: 1px solid #006d77 !important;
-  margin-top: 1rem !important;
+  margin-top: 2rem !important;
 }
 
-@media screen and (min-width: 380px) {
+@media screen and (min-width: 450px) {
   .container-planos {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     gap: 1rem !important;
-    border-top: 1px solid #006d77 !important;
+    /* border-top: 1px solid #006d77 !important; */
   }
 
   .list-plans {

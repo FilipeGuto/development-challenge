@@ -34,7 +34,14 @@
   margin-top: 0.5rem !important;
 }
 
-@media screen and (min-width: 380px) {
+@media screen and (max-width: 450px) {
+  .img-logo-login {
+    height: 20rem !important;
+    width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 450px) {
   .img-logo-login {
     width: 50% !important;
     height: 50% !important;

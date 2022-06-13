@@ -41,7 +41,7 @@
   margin-top: 0.5rem !important;
 }
 
-@media screen and (min-width: 380px) {
+@media screen and (min-width: 450px) {
   .field-login {
     max-width: 50rem !important;
   }

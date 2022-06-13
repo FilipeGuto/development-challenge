@@ -8,13 +8,17 @@
 
 @media screen and (max-width: 450px) {
   .img-container {
-    display: 100% !important;
     height: 20rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    width: 100% !important;
   }
 
   .img-card-partnrs {
-    height: 5rem !important;
-    width: 90% !important;
+    height: 20rem !important;
+    width: 95% !important;
   }
 
   .img-card {
@@ -22,7 +26,7 @@
   }
 }
 
-@media screen and (min-width: 380px) {
+@media screen and (min-width: 450px) {
   .img-container {
     display: flex !important;
     align-items: center !important;

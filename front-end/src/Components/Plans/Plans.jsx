@@ -36,7 +36,7 @@ export default function Plans() {
       </Typography>
       <List
         id="Plans"
-        sx={{ width: "100%", bgcolor: "background.paper" }}
+        sx={{ bgcolor: "background.paper" }}
         component="nav"
         className="list-plans"
         aria-labelledby="nested-list-subheader"
@@ -47,7 +47,7 @@ export default function Plans() {
         }
       >
         <ListItemButton onClick={handleClick}>
-          <ListItemText primary="Padrão" />
+          <ListItemText primary="PADRÃO" />
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
         <Collapse in={open} timeout="auto" unmountOnExit>
@@ -81,7 +81,7 @@ export default function Plans() {
           </List>
         </Collapse>
         <ListItemButton onClick={handleClick}>
-          <ListItemText primary="Completo" />
+          <ListItemText primary="COMPLETO" />
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
         <Collapse in={open} timeout="auto" unmountOnExit>

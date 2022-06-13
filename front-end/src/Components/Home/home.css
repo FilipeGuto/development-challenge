@@ -12,7 +12,13 @@
   border-bottom: 1px solid #006d77 !important;
 }
 
-@media screen and (min-width: 380px) {
+@media screen and (max-width: 450px) {
+  .img-logo {
+    height: 100% !important;
+  }
+}
+
+@media screen and (min-width: 450px) {
   .container-home {
     height: 100vh !important;
     display: flex !important;
