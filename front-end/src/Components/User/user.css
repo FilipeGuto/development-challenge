@@ -20,14 +20,24 @@
   border-bottom: 2px solid #006d77 !important;
   background-color: #f5f5ef !important;
   display: flex !important;
-  justify-content: space-between !important;
+  justify-content: space-around !important;
   padding: 1rem !important;
 }
 
 .bottom-options {
   border-top: 2px solid #006d77 !important;
   display: flex !important;
-  justify-content: space-between !important;
+  justify-content: space-around !important;
   padding: 1rem !important;
   background-color: #f5f5ef !important;
+}
+
+@media screen and (min-width: 1000px) {
+  .list-user-info {
+    border-left: 2px solid #006d77 !important;
+    border-right: 2px solid #006d77 !important;
+    width: 50% !important;
+    margin-left: 25% !important;
+    margin-right: 25% !important;
+  }
 }

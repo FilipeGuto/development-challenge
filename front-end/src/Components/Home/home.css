@@ -8,8 +8,13 @@
 }
 
 .container-page {
-  height: 100vh !important;
+  margin-bottom: 2rem !important;
+}
+
+.section-home {
   border-bottom: 1px solid #006d77 !important;
+  margin-bottom: 3rem !important;
+  width: 100% !important;
 }
 
 @media screen and (max-width: 450px) {
@@ -40,5 +45,12 @@
     border: 1px solid #006d77 !important;
     width: 80% !important;
     height: 60% !important;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .img-logo {
+    width: 50% !important;
+    height: 50% !important;
   }
 }
