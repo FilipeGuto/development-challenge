@@ -61,6 +61,7 @@ export default function CustomizedMenus() {
   return (
     <div>
       <IconButton
+        data-cy="menu"
         size="medium"
         color="inherit"
         aria-label="menu"
@@ -83,19 +84,29 @@ export default function CustomizedMenus() {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose} disableRipple>
-          <a className="link-menu" href="#Home">HOME</a>
+          <a className="link-menu" href="#Home">
+            HOME
+          </a>
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
-          <a className="link-menu" href="#Notes">AVALIAÇÕES</a>
+          <a className="link-menu" href="#Notes">
+            AVALIAÇÕES
+          </a>
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
-          <a className="link-menu" href="#Partners">PARCEIROS</a>
+          <a className="link-menu" href="#Partners">
+            PARCEIROS
+          </a>
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
-          <a className="link-menu" href="#Plans">PLANOS</a>
+          <a className="link-menu" href="#Plans">
+            PLANOS
+          </a>
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
-          <a className="link-menu" href="#Contact">CONTATOS</a>
+          <a data-cy="menu-contact" className="link-menu" href="#Contact">
+            CONTATOS
+          </a>
         </MenuItem>
       </StyledMenu>
     </div>

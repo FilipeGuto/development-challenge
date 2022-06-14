@@ -98,7 +98,7 @@ export default function Plans() {
             </ListItem>
             <div className="confirmed-plan">
               {_.isEmpty(user) ? (
-                <Button variant="contained" disabled>
+                <Button data-cy="btn-plan-disabled" variant="contained" disabled>
                   Faça login
                 </Button>
               ) : (
@@ -132,7 +132,7 @@ export default function Plans() {
             </ListItem>
             <div className="confirmed-plan">
               {_.isEmpty(user) ? (
-                <Button variant="contained" disabled>
+                <Button data-cy="btn-plan-disabled"  variant="contained" disabled>
                   Faça login
                 </Button>
               ) : (

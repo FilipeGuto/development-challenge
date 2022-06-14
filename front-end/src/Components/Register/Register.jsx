@@ -80,6 +80,7 @@ export default function Register() {
       </Typography>
       <div className="field-login">
         <TextField
+          data-cy="input-name-register"
           className="inputs-register"
           label="Nome completo"
           id="input-name"
@@ -89,6 +90,7 @@ export default function Register() {
           type="text"
         />
         <TextField
+          data-cy="input-email-register"
           className="inputs-register"
           label="Email"
           id="input-email"
@@ -98,6 +100,7 @@ export default function Register() {
           type="email"
         />
         <TextField
+          data-cy="input-password-register"
           className="inputs-register"
           label="Password"
           id="input-password"
@@ -107,6 +110,7 @@ export default function Register() {
           type="text"
         />
         <TextField
+          data-cy="input-birthDate-register"
           className="input-birthDate"
           label="Data de nascimento"
           id="input-birthDate"
@@ -117,6 +121,7 @@ export default function Register() {
           type="date"
         />
         <TextField
+          data-cy="input-country-register"
           className="inputs-register"
           label="País"
           id="input-country"
@@ -127,6 +132,7 @@ export default function Register() {
         />
         <InputLabel id="demo-simple-select-label">Estado</InputLabel>
         <Select
+          data-cy="input-state-register"
           className="inputs-register"
           labelId="demo-simple-select-label"
           sx={{ m: 1, width: "35ch" }}
@@ -151,7 +157,7 @@ export default function Register() {
           <MenuItem value={"MG"}>Minas Gerais</MenuItem>
           <MenuItem value={"PA"}>Pará</MenuItem>
           <MenuItem value={"PB"}>Paraíba</MenuItem>
-          <MenuItem value={"PR"}>Paraná</MenuItem>
+          <MenuItem data-cy="input-state" value={"PR"}>Paraná</MenuItem>
           <MenuItem value={"PE"}>Pernambuco</MenuItem>
           <MenuItem value={"PI"}>Piauí</MenuItem>
           <MenuItem value={"RJ"}>Rio de Janeiro</MenuItem>
@@ -166,6 +172,7 @@ export default function Register() {
           <MenuItem value={"EX"}>Estrangeiro</MenuItem>
         </Select>
         <TextField
+          data-cy="input-city-register"
           className="inputs-register"
           label="Cidade"
           id="input-city"
@@ -181,6 +188,7 @@ export default function Register() {
         className="btn-register"
         variant="contained"
         onClick={() => handleRegister()}
+        data-cy="btn-handle-register"
       >
         ENTRAR
       </Button>

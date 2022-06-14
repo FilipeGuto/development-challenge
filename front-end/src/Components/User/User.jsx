@@ -114,7 +114,11 @@ export default function User() {
             btnNo="Voltar"
             paragraph="Confirme sua decisão"
           />
-          <Button variant="contained" onClick={() => navigate("/update")}>
+          <Button
+            data-cy="btn-update-user"
+            variant="contained"
+            onClick={() => navigate("/update")}
+          >
             Atualizar
           </Button>
         </div>

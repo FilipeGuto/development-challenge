@@ -53,7 +53,7 @@ export default function UpdateUser() {
     if (user.message) {
       setCheck("Erro na sua solicitação");
     } else {
-      const {password: _password, ...userWithoutPassword } = user
+      const { password: _password, ...userWithoutPassword } = user;
 
       console.log(userWithoutPassword);
       localStorage.setItem("user", JSON.stringify(userWithoutPassword));
@@ -89,6 +89,7 @@ export default function UpdateUser() {
       >
         <div className="inputs-update">
           <TextField
+            data-cy="input-update-name"
             className="input-up"
             label="Nome completo"
             id="input.name"
@@ -146,7 +147,7 @@ export default function UpdateUser() {
             onChange={(e) => setCity(e.target.value)}
           />
         </div>
-        <Button variant="contained" type="submit">
+        <Button data-cy="btn-confirm-update" variant="contained" type="submit">
           Atualizar
         </Button>
         {check}

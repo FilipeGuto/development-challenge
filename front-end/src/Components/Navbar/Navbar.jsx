@@ -59,7 +59,7 @@ export default function Navbar(props) {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar>
           <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Typography data-cy="logo" variant="h6" component="div" sx={{ flexGrow: 1 }}>
               MEDPAGE
             </Typography>
             <div className="box-menu">
@@ -67,6 +67,7 @@ export default function Navbar(props) {
               onClick={() => navigate("/login")}
               color="inherit"
               className="btn-login"
+              data-cy="btn-login"
             >
               Entrar
             </Button>
@@ -82,6 +83,7 @@ export default function Navbar(props) {
         size="small"
         aria-label="scroll back to top"
         className="btn-to-top"
+        data-cy="btn-to-top"
         >
           <KeyboardArrowUpIcon />
         </Fab>

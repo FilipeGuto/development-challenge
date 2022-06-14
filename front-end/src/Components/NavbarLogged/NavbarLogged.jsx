@@ -74,7 +74,7 @@ export default function Navbar(props) {
                 color="inherit"
               >
                 <AccountCircle />
-                <Typography className="name-perfil" variant="h6">
+                <Typography data-cy="user-logged" className="name-perfil" variant="h6">
                   PERFIL
                 </Typography>
               </IconButton>

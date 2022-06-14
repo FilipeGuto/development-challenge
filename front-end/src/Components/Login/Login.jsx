@@ -51,8 +51,8 @@ export default function Login() {
   const handleLogin = async () => {
     const userInfo = values;
 
-    if (!userInfo.email && !userInfo.password) {
-      setEmpty("Preencha os todos campos");
+    if (!userInfo.email || !userInfo.password) {
+      setEmpty("Preencha todos os campos");
       setTimeout(() => {
         setEmpty("");
       }, 1000);
@@ -60,8 +60,8 @@ export default function Login() {
       setLoading(<CircularProgress />);
       const login = await userLogin(userInfo);
       if (login.message) {
-        setLoading("")
-        setError(login.message);
+        setLoading("");
+        setError("Email ou senha incorretos");
         setTimeout(() => {
           setError("");
         }, 1000);
@@ -80,9 +80,10 @@ export default function Login() {
         image={logo}
         alt="Logo"
       />
-      <Box className="box-login">
+      <Box data-cy="input-login" className="box-login">
         <TextField
           className="input-email"
+          data-cy="input-email"
           label="Email"
           id="input-email"
           sx={{ m: 1, width: "35ch" }}
@@ -98,6 +99,7 @@ export default function Login() {
             type={values.showPassword ? "text" : "password"}
             value={values.password}
             onChange={handleChange("password")}
+          data-cy="input-password"
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
@@ -116,6 +118,7 @@ export default function Login() {
           variant="contained"
           className="login-btn"
           onClick={() => handleLogin()}
+          data-cy="btn-login"
         >
           ENTRAR
         </Button>
@@ -126,7 +129,7 @@ export default function Login() {
         </Typography>
         <Typography variant="h6">
           Ainda não tem conta?
-          <Button onClick={() => navigate("/register")}>
+          <Button data-cy="btn-register" onClick={() => navigate("/register")}>
             <Typography variant="body1">Clique aqui</Typography>
           </Button>
         </Typography>

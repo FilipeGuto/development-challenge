@@ -50,7 +50,7 @@ function ChildModal(props) {
       >
         {props.btnNo}
       </Button>
-      <Button variant="contained" className="btn-warning" onClick={handleOpen}>
+      <Button data-cy="btn-confirm" variant="contained" className="btn-warning" onClick={handleOpen}>
         {props.btnConfirm}
       </Button>
       <Modal
@@ -75,6 +75,7 @@ function ChildModal(props) {
             {props.btnNo}
           </Button>
           <Button
+            data-cy="btn-confirm-delete"
             variant="contained"
             className="btn-warning"
             onClick={() => handleDelete(props.user)}
@@ -99,10 +100,15 @@ export default function DeleteUser(props) {
 
   return (
     <div>
-      <Button className="btn-signature" onClick={handleOpen}>
+      <Button
+        data-cy="btn-deleted-user"
+        className="btn-signature"
+        onClick={handleOpen}
+      >
         {props.title}
       </Button>
       <Modal
+        data-cy="modal-delete"
         open={open}
         onClose={handleClose}
         aria-labelledby="parent-modal-title"
